@@ -102,12 +102,12 @@ const Game = () => {
     setDummyState(123);
   };
 
-  const handleCorridorSort = () => {
+  const handleFinishSort = () => {
     setFinishSort(false);
     setDummyState(456);
   };
 
-  const handleFinishSort = () => {
+  const handleCorridorSort = () => {
     setFinishSort(true);
     setDummyState(321);
   };
