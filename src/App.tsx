@@ -1,13 +1,12 @@
 import "./App.scss";
+import Game from "./Components/Game";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Viveo Task</h1>
-      </header>
+      <Game />
     </div>
   );
-}
+};
 
 export default App;

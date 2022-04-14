@@ -1,0 +1,106 @@
+$primaryColor:rgb(247, 92, 92);
+$secondaryColor:rgb(24, 31, 69);
+$textSecondary:rgb(215, 227, 255);
+
+.player {
+    display: grid;
+    grid-template-columns: 10% 10% 40% 20% 20.1% ; 
+    max-width: 720px;
+    text-align: start;
+  }
+.tableWrap {
+    width: 100%;
+    background-color: rgb(247, 92, 92);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .heroContent {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .column {
+    cursor: pointer;
+  }
+  .textNote{
+    margin: 0;
+    padding: 0;
+    color: $textSecondary;
+    margin-left: 20px;
+    font-size: small;
+    margin-bottom: 5px;
+  }
+  .timerText {
+    font-size:larger;
+    font-weight: 800;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: $secondaryColor;
+  }
+  .playerTable {
+    text-align: center;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  .playerTable td, .playerTable th {
+    padding: 8px;
+  }
+  
+  .playerTable tr:nth-child(even){background-color: #f2f2f2;}
+  
+  .playerTable tr:nth-child(odd) {background-color: rgb(215, 227, 255);}
+  
+  .playerTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: start;
+    color: rgb(255, 255, 255);
+    background-color: rgb(24, 31, 69);
+  }
+  
+  .progress {
+    width: 100%;
+    padding: 5px;
+  }
+  .heroText {
+    margin-left: 20px;
+    color:white
+  }
+  
+  button {
+    width: 100px;
+    height: 40px;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 700;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: all 300ms;
+  }
+  
+  button:hover {
+    background-color: rgb(24, 31, 69);
+    color: white;
+    margin-right: 25px;
+  }
+  
+  progress {
+    border-radius: 2px; 
+    height: 30px;
+    transition: all;
+  }
+  progress::-webkit-progress-bar {
+    background-color: $textSecondary;
+    border-radius: 3px;
+  }
+  progress::-webkit-progress-value {
+    background-color: $secondaryColor;
+    border-radius: 2px;
+  }
