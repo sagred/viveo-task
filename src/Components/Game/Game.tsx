@@ -11,14 +11,9 @@ const Game = () => {
   const [dummyTimer, setDummyTimer] = useState<number>(0);
   const [players, setPlayers] = useState<Player[] | []>([]);
   const [dummyState, setDummyState] = useState<Player | number>(123);
-  const [finishSort, setFinishSort] = useState<boolean>(false);
-  const [isReset, setIsReset] = useState<boolean>(false);
+  const [finishSort, setFinishSort] = useState<boolean>(true);
 
   useEffect(() => {
-    if (isReset) {
-      setPlayers([]);
-      setIsReset(false);
-    }
     const filteredPlayer = data.filter((player) => player.time === dummyTimer);
     if (filteredPlayer[0]) {
       const player: Player = filteredPlayer[0];
@@ -56,15 +51,15 @@ const Game = () => {
         setPlayers(players);
       }
     }
-  }, [dummyTimer, players, isReset]);
+  }, [dummyTimer, players]);
 
   useEffect(() => {
     if (finishSort) {
       setPlayers(
         // @ts-expect-error
         players.sort((a, b) => {
-          if (a.time && b.time) {
-            return a.time - b.time;
+          if (a.finish && b.finish) {
+            return a.finish - b.finish;
           }
         })
       );
@@ -72,8 +67,8 @@ const Game = () => {
       setPlayers(
         // @ts-expect-error
         players.sort((a, b) => {
-          if (a.finish && b.finish) {
-            return a.finish - b.finish;
+          if (a.time && b.time) {
+            return a.time - b.time;
           }
         })
       );
@@ -97,11 +92,13 @@ const Game = () => {
   }, [timer]);
 
   const reset = () => {
-    setIsReset(true);
+    players.forEach((p) => {
+      p.finish = null;
+    });
     setPlayers([]);
     setTimer(0);
     setDummyTimer(0);
-    setFinishSort(false);
+    setFinishSort(true);
     setDummyState(123);
   };
 
@@ -126,9 +123,9 @@ const Game = () => {
             REPLAY
           </button>
         </div>
-        <p className="textNote">
+        {/* <p className="textNote">
           * Click on Corridor or Finish to sort accordingly
-        </p>
+        </p> */}
       </div>
       <table className="playerTable">
         <tr className="player">
